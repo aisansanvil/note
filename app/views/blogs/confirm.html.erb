@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <h3>この内容で大丈夫？</h3>
+
+    <%= form_for(@blog) do |f| %>
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :content %>
+    <%= f.hidden_field :picture %>
+
+
+    <p>タイトル:<%= @blog.title %></p>
+    <p>本文:<%= @blog.content %></p>
+    <p><%= image_tag(@blog.picture) %></p>
+    <br>
+
+    <%= f.submit "更新する", class: 'btn btn-primary btn-block' %>
+    <% end %>
+
+    <%= form_for(@blog, url: new_blog_path, method: 'get') do |f| %>
+    <%= f.hidden_field :title %>
+    <%= f.hidden_field :content %>
+    <%= f.hidden_field :picture %>
+    <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
+    <% end %>
+  </div>
+</div>
