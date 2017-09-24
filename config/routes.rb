@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'top#index'
+  devise_for :users
 
+  root 'top#index'
   resources :blogs, only: [:index, :new, :create, :edit, :update ,:destroy] do
     collection do
       post :confirm
