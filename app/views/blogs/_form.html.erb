@@ -14,14 +14,117 @@
   </div>
   <% end %>
 
+  <b>昨晩の夕飯は食べましたか？</b><br>
+  <%= f.radio_button :dinner_yn, 1 %>
+  <%= f.label :dinner_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :dinner_yn, 2 %>
+  <%= f.label :dinner_yn_2, "いいえ" %>
 
-  <%= f.label :タイトル %>
-  <%= f.text_field :title %>
-  <br>
+   <br><br>
 
-  <%= f.label :本文 %>
-  <%= f.text_field :content %>
-  <br>
+  <b>起きた時の気分はすっきりしていましたか？</b><br>
+  <%= f.radio_button :mor_feeling_yn, 1 %>
+  <%= f.label :mor_feeling_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :mor_feeling_yn, 2 %>
+  <%= f.label :mor_feeling_yn_2, "いいえ" %>
+   <br><br>
+
+  <b>朝ごはんは食べましたか？</b><br>
+  <%= f.radio_button :breakfast_yn, 1 %>
+  <%= f.label :breakfast_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :breakfast_yn, 2 %>
+  <%= f.label :breakfast_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>身だしなみはきちんと整えられましたか？<br>(洗顔・歯磨き・服装)？</b><br>
+  <%= f.radio_button :appearance_yn, 1 %>
+  <%= f.label :appearance_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :appearance_yn, 2 %>
+  <%= f.label :appearance_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>会社に時間通りに出社できましたか？</b><br>
+  <%= f.radio_button :arrival_yn, 1 %>
+  <%= f.label :arrival_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :arrival_yn, 2 %>
+  <%= f.label :arrival_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>あいさつはできましたか？<br>(おはよう！こんにちは！おつかれさまです！)</b><br>
+  <%= f.radio_button :greeting_yn, 1 %>
+  <%= f.label :greeting_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :greeting_yn, 2 %>
+  <%= f.label :greeting_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>昼食は食べましたか？</b><br>
+  <%= f.radio_button :lunch_yn, 1 %>
+  <%= f.label :lunch_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :lunch_yn, 2 %>
+  <%= f.label :lunch_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>お昼は誰と食べましたか？</b><br>
+  <%= f.radio_button :lunch_with, 1 %>
+  <%= f.label :lunch_with_1, "仕事仲間と" %>&nbsp;&nbsp;
+  <%= f.radio_button :lunch_with, 2 %>
+  <%= f.label :lunch_with_2, "一人。または仕事仲間以外の人と" %>
+  <br><br>
+
+  <b>休憩は予定通りとれましたか？</b><br>
+  <%= f.radio_button :break_yn, 1 %>
+  <%= f.label :break_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :break_yn, 2 %>
+  <%= f.label :break_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>業務スケジュール予定通り進められましたか？</b><br>
+  <%= f.radio_button :schedule_yn, 1 %>
+  <%= f.label :schedule_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :schedule_yn, 2 %>
+  <%= f.label :schedule_yn2, "いいえ" %>
+  <br><br>
+
+  <b>(業務スケジュール予定通りにいかなかった場合)<br>その理由はどれですか？</b><br>
+  <%= f.radio_button :schedule_reason, 1 %>
+  <%= f.label :schedule_reason_1, "業務量が多かった" %>&nbsp;&nbsp;
+  <%= f.radio_button :schedule_reason, 2 %>
+  <%= f.label :schedule_reason_2, "それ以外の理由で" %>
+  <br><br>
+
+  <b>ミスなく業務ができましたか？</b><br>
+  <%= f.radio_button :nomistake_yn, 1 %>
+  <%= f.label :nomistake_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :nomistake_yn, 2 %>
+  <%= f.label :nomistake_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>定時で業務を終了しましたか？</b><br>
+  <%= f.radio_button :overtime_yn, 1 %>
+  <%= f.label :overtime_yn_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :overtime_yn, 2 %>
+  <%= f.label :overtime_yn_2, "いいえ" %>
+  <br><br>
+
+  <b>楽しく業務できましたか？</b><br>
+  <%= f.radio_button :enjoy_working, 1 %><%= f.label :enjoy_working_1, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :enjoy_working, 2 %>
+  <%= f.label :enjoy_working_2, "いいえ" %>
+  <br><br>
+
+  <b>困っていることはないですか？</b><br>
+  <%= f.radio_button :worried_select, 1 %>
+  <%= f.label :worried_select, "はい" %>&nbsp;&nbsp;
+  <%= f.radio_button :worried_select, 2 %>
+  <%= f.label :worried_select_2, "いいえ" %>
+  <br><br>
+
+  <b>良かったこと、気になっていることはありますか？</b><br>
+  <%= f.label :タイトル %><br>
+  <%= f.text_field :title, placeholder: "●●●について"  %><br>
+  <%= f.label :内容 %><br>
+  <%= f.text_field :content, :size=>"70x50", placeholder: "具体的に良かった点や気なったことなどを書いてみましょう！" %>
+  <br><br>
 
   <%= f.label :画像 %>
   <%= f.file_field :picture %>

@@ -4,5 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-         has_many :blogs
+  has_many :blogs, dependent: :destroy
+   # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
 end

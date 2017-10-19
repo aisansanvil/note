@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
     @blogs = Blog.all.order('id DESC')
@@ -46,9 +46,15 @@ class BlogsController < ApplicationController
     render :new if @blog.invalid?
   end
 
+  # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
+  def show
+    @comment = @blog.comments.build
+    @comments = @blog.comments
+  end
+
   private
   def blogs_params
-    params.require(:blog).permit(:title, :content, :picture)
+    params.require(:blog).permit(:title, :content, :picture, :dinner_yn, :mor_feeling_yn, :breakfast_yn, :appearance_yn, :arrival_yn, :greeting_yn, :lunch_yn, :lunch_with, :break_yn, :schedule_yn, :schedule_reason, :nomistake_yn, :overtime_yn, :enjoy_working, :worried_select,)
   end
 
   def set_blog

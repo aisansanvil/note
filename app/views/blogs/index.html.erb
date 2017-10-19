@@ -5,16 +5,43 @@
 
       <h1>My Notes</h1>
 
+      <h2><%= link_to "今日の日誌-MyNote-を書く", new_blog_path %></h2>
+
       <% @blogs.each do |blog| %>
-        <p>タイトル:<%= blog.title %></p>
+
+      <div style="background: #f4f9ff; width:600px; height:100％; padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:20px;">
+
+        <%= link_to blog_path(blog) do %>
+        <h2><%= blog.created_at.strftime("%y年%m月%d日") %></h2>
+        <% end %>
+
+        <p>昨晩の夕飯は食べましたか？：&nbsp;<%= blog.dinner_yn == 1? "はい" : "いいえ" %></p>
+        <p>起きた時の気分はすっきりしていましたか？：&nbsp;<%= blog.mor_feeling_yn == 1? "はい" : "いいえ" %></p>
+        <p>朝ごはんは食べましたか？：&nbsp;<%= blog.breakfast_yn == 1? "はい" : "いいえ" %></p>
+        <p>身だしなみはきちんと整えられましたか？：&nbsp;<%= blog.appearance_yn == 1? "はい" : "いいえ" %></p>
+        <p>会社に時間通りに出社できましたか？：&nbsp;<%= blog.arrival_yn == 1? "はい" : "いいえ" %></p>
+        <p>あいさつはできましたか？<br>(おはよう！こんにちは！おつかれさまです！)：&nbsp;<%= blog.greeting_yn == 1? "はい" : "いいえ" %></p>
+        <p>昼食は食べましたか？：&nbsp;<%= blog.lunch_yn == 1? "はい" : "いいえ" %></p>
+        <p>お昼は誰と食べましたか？：&nbsp;<%= blog.lunch_with == 1? "仕事仲間と" : "一人。または仕事仲間以外の人と" %></p>
+        <p>休憩は予定通りとれましたか？：&nbsp;<%= blog.break_yn == 1? "はい" : "いいえ" %></p>
+        <p>業務スケジュール予定通り進められましたか？：&nbsp;<%= blog.schedule_yn == 1? "はい" : "いいえ" %></p>
+        <p>(業務スケジュール予定通りにいかなかった場合)<br>その理由はどれですか？：&nbsp;<%= blog.schedule_reason == 1? "業務量が多かった" : "それ以外の理由で" %></p>
+        <p>ミスなく業務ができましたか？：&nbsp;<%= blog.nomistake_yn == 1? "はい" : "いいえ" %></p>
+        <p>定時で業務を終了しましたか？：&nbsp;<%= blog.overtime_yn == 1? "はい" : "いいえ" %></p>
+        <p>楽しく業務できましたか？：&nbsp;<%= blog.enjoy_working == 1? "はい" : "いいえ" %></p>
+        <p>困っていることはないですか？：&nbsp;<%= blog.worried_select == 1? "はい" : "いいえ" %></p>
+        <p>良かったこと、気になっていることはありますか？<br>
+        <div style="background: #e6f1ff; width:560px; height:100％; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:10px;">
+          <p>タイトル:<br><%= blog.title %></p><p>内容：&nbsp;<br><%= blog.content %></p>
+        </div>
         <p><%= image_tag (blog.picture) %></p>
-        <p>本文:<%= blog.content %></p>
-        <p><%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-primary btn-sm', data: { confirm: '本当に編集していいですか？' } %>
-        <%= link_to "削除", blog_path(blog.id), method: :delete, class: 'btn btn-default btn-sm', data: { confirm: '本当に削除していいですか？' } %></p>
+        <p align="right"><%= blog.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+        <p align="right"><%= link_to "修正する", edit_blog_path(blog.id), class: 'btn btn-primary btn-sm', data: { confirm: '本当に編集していいですか？' } %>
+        <%= link_to "削除する", blog_path(blog.id), method: :delete, class: 'btn btn-primary btn-sm', data: { confirm: '本当に削除していいですか？' } %></p>
+
+      </div><br>
 
       <% end %>
-
-      <%= link_to "今日のMy Note", new_blog_path %>
     </div>
   </div>
 </div>

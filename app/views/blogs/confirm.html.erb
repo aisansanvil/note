@@ -3,13 +3,42 @@
     <h3>この内容で大丈夫？</h3>
 
     <%= form_for(@blog) do |f| %>
+    <%= f.hidden_field :dinner_yn %>
+    <%= f.hidden_field :mor_feeling_yn %>
+    <%= f.hidden_field :breakfast_yn %>
+    <%= f.hidden_field :appearance_yn %>
+    <%= f.hidden_field :arrival_yn %>
+    <%= f.hidden_field :greeting_yn %>
+    <%= f.hidden_field :lunch_yn %>
+    <%= f.hidden_field :lunch_with %>
+    <%= f.hidden_field :break_yn %>
+    <%= f.hidden_field :schedule_yn %>
+    <%= f.hidden_field :schedule_reason %>
+    <%= f.hidden_field :nomistake_yn %>
+    <%= f.hidden_field :overtime_yn %>
+    <%= f.hidden_field :enjoy_working %>
+    <%= f.hidden_field :worried_select %>
+    <%= f.hidden_field :enjoy_working %>
     <%= f.hidden_field :title %>
     <%= f.hidden_field :content %>
     <%= f.hidden_field :picture %>
 
-
-    <p>タイトル:<%= @blog.title %></p>
-    <p>本文:<%= @blog.content %></p>
+    <p>昨晩の夕飯は食べましたか？：&nbsp;<%= @blog.dinner_yn == 1? "はい" : "いいえ" %></p>
+    <p>起きた時の気分はすっきりしていましたか？：&nbsp;<%= @blog.mor_feeling_yn == 1? "はい" : "いいえ" %></p>
+    <p>朝ごはんは食べましたか？：&nbsp;<%= @blog.breakfast_yn == 1? "はい" : "いいえ" %></p>
+    <p>身だしなみはきちんと整えられましたか？：&nbsp;<%= @blog.appearance_yn == 1? "はい" : "いいえ" %></p>
+    <p>会社に時間通りに出社できましたか？：&nbsp;<%= @blog.arrival_yn == 1? "はい" : "いいえ" %></p>
+    <p>あいさつはできましたか？<br>(おはよう！こんにちは！おつかれさまです！)：&nbsp;<%= @blog.greeting_yn == 1? "はい" : "いいえ" %></p>
+    <p>昼食は食べましたか？：&nbsp;<%= @blog.lunch_yn == 1? "はい" : "いいえ" %></p>
+    <p>お昼は誰と食べましたか？：&nbsp;<%= @blog.lunch_with == 1? "仕事仲間と" : "一人。または仕事仲間以外の人と" %></p>
+    <p>休憩は予定通りとれましたか？：&nbsp;<%= @blog.break_yn == 1? "はい" : "いいえ" %></p>
+    <p>業務スケジュール予定通り進められましたか？：&nbsp;<%= @blog.schedule_yn == 1? "はい" : "いいえ" %></p>
+    <p>(業務スケジュール予定通りにいかなかった場合)<br>その理由はどれですか？：&nbsp;<%= @blog.schedule_reason == 1? "業務量が多かった" : "それ以外の理由で" %></p>
+    <p>ミスなく業務ができましたか？：&nbsp;<%= @blog.nomistake_yn == 1? "はい" : "いいえ" %></p>
+    <p>定時で業務を終了しましたか？：&nbsp;<%= @blog.overtime_yn == 1? "はい" : "いいえ" %></p>
+    <p>楽しく業務できましたか？：&nbsp;<%= @blog.enjoy_working == 1? "はい" : "いいえ" %></p>
+    <p>困っていることはないですか？：&nbsp;<%= @blog.worried_select == 1? "はい" : "いいえ" %></p>
+    <p>良かったこと、気になっていることはありますか？<br><p>タイトル:<br><%= @blog.title %></p><p>内容：&nbsp;<br><%= @blog.content %></p>
     <p><%= image_tag(@blog.picture) %></p>
     <br>
 
@@ -17,6 +46,22 @@
     <% end %>
 
     <%= form_for(@blog, url: new_blog_path, method: 'get') do |f| %>
+    <%= f.hidden_field :dinner_yn %>
+    <%= f.hidden_field :mor_feeling_yn %>
+    <%= f.hidden_field :breakfast_yn %>
+    <%= f.hidden_field :appearance_yn %>
+    <%= f.hidden_field :arrival_yn %>
+    <%= f.hidden_field :greeting_yn %>
+    <%= f.hidden_field :lunch_yn %>
+    <%= f.hidden_field :lunch_with %>
+    <%= f.hidden_field :break_yn %>
+    <%= f.hidden_field :schedule_yn %>
+    <%= f.hidden_field :schedule_reason %>
+    <%= f.hidden_field :nomistake_yn %>
+    <%= f.hidden_field :overtime_yn %>
+    <%= f.hidden_field :enjoy_working %>
+    <%= f.hidden_field :worried_select %>
+    <%= f.hidden_field :enjoy_working %>
     <%= f.hidden_field :title %>
     <%= f.hidden_field :content %>
     <%= f.hidden_field :picture %>

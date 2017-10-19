@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<div class="child row">
+  <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+    <div class="blog-text">
+
+      <p class="left"><strong>昨晩の夕飯は食べましたか？：</strong></p>
+      <p><%= @blog.dinner_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>起きた時の気分はすっきりしていましたか？：</strong></p>
+      <p><%= @blog.mor_feeling_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>朝ごはんは食べましたか？：</strong></p>
+      <p><%= @blog.breakfast_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>身だしなみはきちんと整えられましたか？：</strong></p>
+      <p><%= @blog.appearance_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>会社に時間通りに出社できましたか？：</strong></p>
+      <p><%= @blog.arrival_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>あいさつはできましたか？<br>(おはよう！こんにちは！おつかれさまです！)：</strong></p>
+      <p><%= @blog.greeting_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>昼食は食べましたか？：</strong></p>
+      <p><%= @blog.lunch_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>お昼は誰と食べましたか？：</strong></p>
+      <p><%= @blog.lunch_with == 1? "仕事仲間と" : "一人。または仕事仲間以外の人と" %></p>
+      <p class="left"><strong>休憩は予定通りとれましたか？：</strong></p>
+      <p><%= @blog.break_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>業務スケジュール予定通り進められましたか？：</strong></p>
+      <p><%= @blog.schedule_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>(業務スケジュール予定通りにいかなかった場合)<br>その理由はどれですか？：</strong></p>
+      <p><%= @blog.schedule_reason == 1? "業務量が多かった" : "それ以外の理由で" %></p>
+      <p class="left"><strong>ミスなく業務ができましたか？：</strong></p>
+      <p><%= @blog.nomistake_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>定時で業務を終了しましたか？：</strong></p>
+      <p><%= @blog.overtime_yn == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>楽しく業務できましたか？：</strong></p>
+      <p><%= @blog.enjoy_working == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>困っていることはないですか？：</strong></p>
+      <p><%= @blog.worried_select == 1? "はい" : "いいえ" %></p>
+      <p class="left"><strong>良かったこと、気になっていることはありますか？</strong></p>
+      <div style="background: #e6f1ff; width:560px; height:100％; padding-left:10px; padding-right:10px; padding-top:10px; padding-bottom:10px;">
+        <p class="left"><strong>タイトル:</strong></p><p><%= @blog.title %></p>
+        <p class="left"><strong>内容：</strong></p><p><%= @blog.content %></p>
+      </div>
+      <p><%= image_tag (@blog.picture) %></p>
+
+      <p class="right">
+        <strong>作成時間:</strong>
+        <%= @blog.created_at.strftime("%y/%m/%d %p %l:%M") %>
+      </p>
+
+    </div>
+    <p>コメント一覧</p>
+    <div id="comments_area">
+      <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+    </div>
+    <%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+    <% if current_user.id == @blog.user_id %>
+      <%= link_to '編集', edit_blog_path(@blog) %> |
+    <% end %>
+    <%= link_to '戻る', blogs_path %>
+  </div>
+</div>
