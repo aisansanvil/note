@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
   <title>Note</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta content="width=device-width, initial-scale=1" name="viewport">
+  <script>
+  var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>',{
+    encrypted: true,
+    cluster: 'ap1'
+  });
+
+  var channel = pusher.subscribe('test_channel');
+  channel.bind('comment_created', function(data) {
+    alert(data.message);
+  });
+  </script>
 </head>
 
 <body>

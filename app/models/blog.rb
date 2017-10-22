@@ -4,4 +4,6 @@ class Blog < ActiveRecord::Base
   # CommentモデルのAssociationを設定
   has_many :comments, dependent: :destroy
 
+  include CsvExportable
+
 end

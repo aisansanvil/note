@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg'
+#gem 'pg', '~> 0.20.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,18 +27,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #image uploader
 gem 'carrierwave'
 gem 'mini_magick'
-
 gem 'rails_12factor', group: :production
-
 gem 'devise'
-
 gem 'rails_admin'
-
 gem 'cancan'
-
 gem 'pry-rails'
 gem 'better_errors'
 gem 'activeresource'
+gem 'twitter-bootstrap-rails'
+gem 'pusher'
+gem 'ransack'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -62,5 +61,3 @@ end
 group :development do
   gem 'letter_opener_web'
 end
-
-gem 'twitter-bootstrap-rails'

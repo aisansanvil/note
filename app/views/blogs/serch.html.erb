@@ -1,0 +1,30 @@
+<% content_for(:title) do %>
+  MyNote出力
+<% end %>
+
+<%= search_form_for(@q, url: search_blogs_path, html: { method: :get, class: 'form-horizontal', role: 'form' }) do |f| %>
+  <%= render 'search_form', f: f %>
+<% end %>
+
+<%= render layout: 'shared/search_result_box' do %>
+  <table class="table table-list ">
+  <thead>
+    <tr>
+      <th>作成日</th>
+      <th>ユーザー</th>
+      <th>タイトル</th>
+      <th>内容</th>
+    </tr>
+  </thead>
+  <% @blogs.each do |blog| %>
+  <tbody>
+  <tr>
+    <td><%= blog.created_at %> </td>
+    <td><%= blog.user.name %></td>
+    <td><%= blog.title %></td>
+    <td><%= blog.content %></td>
+  </tr>
+  </tbody>
+<% end %>
+</table>
+<% end %>

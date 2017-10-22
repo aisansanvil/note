@@ -3,14 +3,22 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
-  root 'top#index'
+  root 'blogs#index'
+
+  resources :conversations do
+    resources :messages
+  end
 
   resources :blogs do
     resources :comments
     post :confirm, on: :collection
+    
+    collection do
+      get :export_csv
+    end
   end
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show]
 
   resources :contacts, only: [:new, :create] do
     collection do
@@ -18,9 +26,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :conversations do
-    resources :messages
-  end
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

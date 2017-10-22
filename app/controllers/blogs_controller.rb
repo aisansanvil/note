@@ -1,9 +1,14 @@
 class BlogsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :download]
 
   def index
     @blogs = Blog.all.order('id DESC')
+  end
+
+  def export_csv
+    @blogs = Blog.all
+    send_data @blogs.to_csv, filename: "#{Time.current.strftime('%Y%m%d')}.csv"
   end
 
   def new
@@ -51,6 +56,7 @@ class BlogsController < ApplicationController
     @comment = @blog.comments.build
     @comments = @blog.comments
   end
+
 
   private
   def blogs_params
