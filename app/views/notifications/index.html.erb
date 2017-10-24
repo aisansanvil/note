@@ -1,0 +1,21 @@
+<h2>お知らせ</h2>
+<div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+  <div class="row" >
+    <ul>
+      <% @notifications.each do |notification| %>
+      <hr>
+
+      <% if notification.read == false %>
+        <p>未読</p>
+      <% end %>
+
+      <p>
+        <%= notification.comment.user.try(:name) %>さんが
+        あなたのブログ（<%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id) %>）にコメントしました。
+      </p>
+
+      <p class="right"><%= notification.created_at.strftime("%y/%m/%d %p %l:%M") %></p>
+      <% end %>
+    </ul>
+  </div>
+</div>
