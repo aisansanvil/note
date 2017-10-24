@@ -60,7 +60,7 @@ class BlogsController < ApplicationController
 
   private
   def blogs_params
-    params.require(:blog).permit(:title, :content, :picture, :dinner_yn, :mor_feeling_yn, :breakfast_yn, :appearance_yn, :arrival_yn, :greeting_yn, :lunch_yn, :lunch_with, :break_yn, :schedule_yn, :schedule_reason, :nomistake_yn, :overtime_yn, :enjoy_working, :worried_select,)
+    params.require(:blog).permit(:title, :content, :picture, :dinner_yn, :mor_feeling_yn, :breakfast_yn, :appearance_yn, :arrival_yn, :greeting_yn, :lunch_yn, :lunch_with, :break_yn, :schedule_yn, :schedule_reason, :nomistake_yn, :overtime_yn, :enjoy_working, :worried_select, :picture_cache,)
   end
 
   def set_blog

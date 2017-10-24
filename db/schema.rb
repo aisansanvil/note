@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171020145051) do
+ActiveRecord::Schema.define(version: 20171024000550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,8 @@ ActiveRecord::Schema.define(version: 20171020145051) do
     t.integer  "user_id"
     t.integer  "appearance_yn"
     t.integer  "arrival_yn"
-    t.time     "bed_time"
     t.integer  "break_yn"
     t.integer  "breakfast_yn"
-    t.time     "dinner_time"
     t.integer  "dinner_yn"
     t.integer  "enjoy_working"
     t.integer  "greeting_yn"
@@ -39,7 +37,6 @@ ActiveRecord::Schema.define(version: 20171020145051) do
     t.integer  "overtime_yn"
     t.integer  "schedule_reason"
     t.integer  "schedule_yn"
-    t.time     "wakeup_time"
     t.integer  "worried_select"
   end
 

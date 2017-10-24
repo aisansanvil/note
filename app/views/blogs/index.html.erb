@@ -8,7 +8,7 @@
 
       <h2><%= link_to "今日の日誌-MyNote-を書く", new_blog_path %></h2>
 
-      <% @blogs.each do |blog| %>
+      <% @blogs.first(1).each do |blog| %>
 
       <div style="background: #eaf4ff; width:100%; height:100％; padding-left:20px; padding-right:20px; padding-top:10px; padding-bottom:20px;">
 
@@ -59,11 +59,11 @@
         <% end %>
 
       </ul>
-      
+
       <% content_for(:title) do %>
         MyNote出力
       <% end %>
-      <%= link_to 'CSV出力', export_csv_blogs_path, class: 'btn btn-default' %>
+      <%= link_to 'CSV出力', export_csv_blogs_path(format: 'csv'), class: 'btn btn-default' %>
     </div>
   </div>
 </div>
